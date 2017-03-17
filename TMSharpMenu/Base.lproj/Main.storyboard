@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Eky-my-Nrq">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TMSharpMenu" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GqJ-mw-aan">
+                                <rect key="frame" x="20" y="114" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.4074169419" green="0.52886268069999998" blue="0.92554813619999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="didClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="D7P-Oe-I2Q"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lut-OB-Cj6">
+                                <rect key="frame" x="345" y="84" width="30" height="30"/>
+                                <color key="backgroundColor" red="0.4074169419" green="0.52886268069999998" blue="0.92554813619999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Wdj-A3-hmI"/>
+                                    <constraint firstAttribute="width" constant="30" id="dWf-lH-DoO"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="didClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QHd-R3-BDZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhl-wg-puD">
+                                <rect key="frame" x="164" y="41" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="didClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wgM-1P-sIu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kem-yb-8PP">
+                                <rect key="frame" x="10" y="637" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.4074169419" green="0.52886268069999998" blue="0.92554813619999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="didClick2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SAY-Q1-VON"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OD7-0R-ChE">
+                                <rect key="frame" x="164.5" y="629" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.4074169419" green="0.52886268069999998" blue="0.92554813619999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="didClick2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2ng-lH-0N3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JVy-Ch-cjF">
+                                <rect key="frame" x="313" y="617" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.4074169419" green="0.52886268069999998" blue="0.92554813619999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="didClick2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BHV-Xa-p8N"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JL0-ep-XV6">
+                                <rect key="frame" x="164" y="241" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.4074169419" green="0.52886268069999998" blue="0.92554813619999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="didClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5HP-eP-7kB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.052281402051448822" green="0.80260384082794189" blue="0.73488563299179077" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OD7-0R-ChE" secondAttribute="bottom" constant="8" id="1Ln-pn-pQy"/>
+                            <constraint firstItem="GqJ-mw-aan" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="1vr-FO-x7t"/>
+                            <constraint firstItem="GqJ-mw-aan" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="4S5-PT-52X"/>
+                            <constraint firstAttribute="trailing" secondItem="lut-OB-Cj6" secondAttribute="trailing" id="ABj-yD-gTC"/>
+                            <constraint firstItem="lut-OB-Cj6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="J0I-I3-thS"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Kem-yb-8PP" secondAttribute="bottom" id="fA0-Te-buJ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="JVy-Ch-cjF" secondAttribute="bottom" constant="20" id="nle-Su-n6j"/>
+                            <constraint firstItem="Kem-yb-8PP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="ofy-u1-i8T"/>
+                            <constraint firstItem="OD7-0R-ChE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vhh-db-CYi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JVy-Ch-cjF" secondAttribute="trailing" id="wd8-x1-XWK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="MhB-ou-4iw">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="sKy-H9-UYT">
+                            <connections>
+                                <action selector="leftClick:" destination="BYZ-38-t0r" id="Tj8-IJ-eJE"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="mdO-sc-yhN">
+                            <connections>
+                                <action selector="rightClick:" destination="BYZ-38-t0r" id="S1G-rJ-MLZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="810" y="-648"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="uLu-hL-frZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Eky-my-Nrq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ia9-gV-azY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="oSn-YQ-joz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ccq-Dc-HgH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-74.400000000000006" y="-648.12593703148434"/>
+        </scene>
+    </scenes>
+</document>
