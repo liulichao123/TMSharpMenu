@@ -8,6 +8,9 @@
 
 import Foundation
 import UIKit
+
+//十六进制颜色
+
 public func HEXCOLOR(_ hexValue: Int) -> UIColor {
     return HEXACOLOR(hexValue, alpha: 1.0)
 }

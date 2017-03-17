@@ -30,18 +30,6 @@
                                     <action selector="didClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="D7P-Oe-I2Q"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lut-OB-Cj6">
-                                <rect key="frame" x="345" y="84" width="30" height="30"/>
-                                <color key="backgroundColor" red="0.4074169419" green="0.52886268069999998" blue="0.92554813619999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Wdj-A3-hmI"/>
-                                    <constraint firstAttribute="width" constant="30" id="dWf-lH-DoO"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="didClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QHd-R3-BDZ"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhl-wg-puD">
                                 <rect key="frame" x="164" y="41" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -83,8 +71,20 @@
                                     <action selector="didClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5HP-eP-7kB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lut-OB-Cj6">
+                                <rect key="frame" x="345" y="84" width="30" height="30"/>
+                                <color key="backgroundColor" red="0.4074169419" green="0.52886268069999998" blue="0.92554813619999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Wdj-A3-hmI"/>
+                                    <constraint firstAttribute="width" constant="30" id="dWf-lH-DoO"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="didClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QHd-R3-BDZ"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.052281402051448822" green="0.80260384082794189" blue="0.73488563299179077" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OD7-0R-ChE" secondAttribute="bottom" constant="8" id="1Ln-pn-pQy"/>
                             <constraint firstItem="GqJ-mw-aan" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="1vr-FO-x7t"/>
