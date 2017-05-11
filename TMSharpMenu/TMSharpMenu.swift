@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-typealias TMSharpMenuItem = (img: String, title: String, block: (() -> Void))?
+typealias TMSharpMenuItem = (img: String?, title: String?, block: (() -> Void))?
 
 enum TMDirection {
     case up
@@ -19,23 +19,23 @@ enum TMDirection {
 //MARK: 配置
 struct TMSharpMenuConfig {
     
-    var type = TMDirection.up
-    var cornerRadius: CGFloat = 5       //corner
+    var type = TMDirection.up                //箭头位置，上/下
+    var cornerRadius: CGFloat = 5            //corner
     var bgAlpha: CGFloat = 0.8825            //please set alpha，not set alpha
     var color: UIColor = UIColor(red: 56.0/255.0, green:  56.0/255.0, blue:  56.0/255.0, alpha: 1)
     
-    var inset: CGFloat = 14.5             //self(left right) to superView margin
-    var triangleToBottom: CGFloat = 0   //三角下偏移量
-    var minToLeftRight: CGFloat = 4     //三角距左右最小偏移
-    var triangleWidth: CGFloat = 10     //三角底边宽度
-    var triangleHeight: CGFloat = 4    //三角高度（实际看到的高度可能会因为triangleToBottom 值得存在比设置的小，导致上面有一点空白）
+    var inset: CGFloat = 14.5               //自身的左右距离superview
+    var triangleToBottom: CGFloat = 0       //三角下偏移量
+    var minToLeftRight: CGFloat = 4         //三角距左右最小偏移
+    var triangleWidth: CGFloat = 10         //三角底边宽度
+    var triangleHeight: CGFloat = 4         //三角高度（实际看到的高度可能会因为triangleToBottom 值得存在比设置的小，导致上面有一点空白）
     
     var itemH: CGFloat = 44
     var itemW: CGFloat = 125
     var itemTitleFont: UIFont = UIFont.systemFont(ofSize: 14)
     var itemTitleColor = UIColor.white
     var itemTitleColorH = HEXCOLOR(0xFFB544)
-    //itm图片、分割线调整见底部 item
+    //item图片、分割线调整见底部 item
     
 }
 
@@ -96,19 +96,30 @@ class TMSharpMenu: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func addItem(image: String, title: String, block: (() -> Void)?)  {
+    private func addItem(image: String?, title: String?, block: (() -> Void)?)  {
         itemButtons.forEach { (item) in
             item.showLine = true
         }
         let i = itemButtons.count
         let item = TMSharpMenuItemButton(frame: CGRect(x: 0, y: CGFloat(i) * config.itemH, width: config.itemW, height: config.itemH))
-        item.setImage(UIImage(named: image), for: .normal)
-        //高亮图片可以在normal图片添加一个 _h 后缀
-        item.setImage(UIImage(named: "\(image)_h"), for: .highlighted)
-        item.setTitle(title, for: .normal)
-        item.titleLabel?.font = config.itemTitleFont
-        item.setTitleColor(config.itemTitleColor, for: .normal)
-        item.setTitleColor(config.itemTitleColorH, for: .highlighted)
+        if let image = image {
+            item.setImage(UIImage(named: image), for: .normal)
+            //高亮图片可以在normal图片添加一个 _h 后缀
+            item.setImage(UIImage(named: "\(image)_h"), for: .highlighted)
+        }
+        if let title = title {
+            item.setTitle(title, for: .normal)
+            item.titleLabel?.font = config.itemTitleFont
+            item.setTitleColor(config.itemTitleColor, for: .normal)
+            item.setTitleColor(config.itemTitleColorH, for: .highlighted)
+        }
+        if title != nil, image != nil {
+            item.type = .both
+        }else if title == nil, image != nil {
+            item.type = .onlyImage
+        }else if title != nil, image == nil {
+            item.type = .onlyTitle
+        }
         item.block = block
         item.tag = i
         item.showLine = false
@@ -187,14 +198,8 @@ class TMSharpMenu: UIView {
         contentView.frame = bottomView.frame
         addSubview(contentView)//必须最后添加
         
-        //animate
-//        let sx = sharp.frame.origin.x + sharp.frame.width * 0.5
-//        let sy = sharp.frame.origin.y
-//        let toFrame = bounds
-//        imageView.frame.origin = CGPoint(x: sx, y: sy)
         alpha = 0
         UIImageView.animate(withDuration: 0.1, animations: {
-            //self.imageView.frame = toFrame
             self.alpha = self.config.bgAlpha
         })
     }
@@ -229,13 +234,9 @@ class TMSharpMenu: UIView {
         UIGraphicsEndImageContext()
         return image
     }
-    
-    deinit {
-        print("menu deinit")
-    }
 }
 //MARK: TMTriangle 三角尖
-class TMTriangle: UIView {
+fileprivate class TMTriangle: UIView {
     
     var type = TMDirection.up
     var color = UIColor.black
@@ -258,14 +259,23 @@ class TMTriangle: UIView {
     }
 }
 
+enum TMSharpMenuItemButtonType {
+    case onlyTitle
+    case onlyImage
+    case both
+}
 
 //MARK: item 按钮
-class TMSharpMenuItemButton: UIButton {
+fileprivate class TMSharpMenuItemButton: UIButton {
     weak var menu: TMSharpMenu? = nil
     let line: UIView
-    let imageHW: CGFloat = 25       //image宽高
-    let leftInset: CGFloat = 15     //image距左
-    let imageToTitle: CGFloat = 14   //title距image间距
+    let imageHW: CGFloat = 25           //image宽高
+    let leftInset: CGFloat = 15         //image距左
+    let imageToTitle: CGFloat = 14      //title距image间距
+    var lineLeftMargin: CGFloat = 10     //分割线调整
+    var lineRightMargin: CGFloat = 10
+    var type = TMSharpMenuItemButtonType.both
+    
     var showLine = true {
         didSet{
             line.isHidden = !showLine
@@ -278,7 +288,7 @@ class TMSharpMenuItemButton: UIButton {
     }
     
     override init(frame: CGRect) {
-        line = UIView(frame: CGRect(x: 10, y: frame.size.height - 0.5, width: 106, height: 1))
+        line = UIView(frame: CGRect(x: lineLeftMargin, y: frame.size.height - 0.5, width: frame.width - lineLeftMargin - lineRightMargin, height: 1))
         super.init(frame: frame)
         let rgb: CGFloat = 48
         line.backgroundColor = UIColor(red: rgb/255.0, green: rgb/255.0, blue: rgb/255.0, alpha: 1)
@@ -293,18 +303,30 @@ class TMSharpMenuItemButton: UIButton {
         menu?.dismiss()
         block?()
     }
+    
     // stp1
     override func imageRect(forContentRect contentRect: CGRect) -> CGRect {
-        return CGRect(x: leftInset, y: (frame.height - imageHW) * 0.5, width: imageHW, height: imageHW)
-    }
-    // stp2
-    override func titleRect(forContentRect contentRect: CGRect) -> CGRect {
-        return CGRect(x: leftInset + imageHW + imageToTitle, y: (frame.height - imageHW) * 0.5, width: frame.width - leftInset - imageHW - imageToTitle, height: imageHW)
-    }
-    deinit {
-        print("item deinit")
+        switch type {
+        case .onlyTitle:
+            return CGRect()
+        case .onlyImage:
+            return super.imageRect(forContentRect: contentRect)
+        default:
+            return CGRect(x: leftInset, y: (frame.height - imageHW) * 0.5, width: imageHW, height: imageHW)
+        }
     }
     
+    // stp2
+    override func titleRect(forContentRect contentRect: CGRect) -> CGRect {
+        switch type {
+        case .onlyTitle:
+            return super.titleRect(forContentRect: contentRect)
+        case .onlyImage:
+            return CGRect()
+        default:
+            return CGRect(x: leftInset + imageHW + imageToTitle, y: (frame.height - imageHW) * 0.5, width: frame.width - leftInset - imageHW - imageToTitle, height: imageHW)
+        }
+    }
 }
 /**
  实现思路：
